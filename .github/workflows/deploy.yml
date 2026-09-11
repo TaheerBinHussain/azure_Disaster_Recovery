@@ -71,9 +71,12 @@ jobs:
       - name: 🚀 Deploy new revision to Azure Container Apps
         uses: azure/container-apps-deploy-action@v1
         with:
-          resourceGroup:     ${{ env.RESOURCE_GROUP }}
-          containerAppName:  ${{ env.APP_NAME }}
-          imageToDeploy:     ${{ env.IMAGE }}:${{ needs.build.outputs.image_tag }}
+          resourceGroup:      ${{ env.RESOURCE_GROUP }}
+          containerAppName:   ${{ env.APP_NAME }}
+          imageToDeploy:      ${{ env.IMAGE }}:${{ needs.build.outputs.image_tag }}
+          registryUrl:        ghcr.io
+          registryUsername:   ${{ github.actor }}
+          registryPassword:   ${{ secrets.GITHUB_TOKEN }}
 
       - name: ⏳ Wait for container to start (30s)
         run: sleep 30
