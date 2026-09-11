@@ -55,7 +55,7 @@ variable "app_name" {
 variable "image" {
   description = "Container image to deploy"
   type        = string
-  default     = "ghcr.io/taheerbinhussain/azure_disaster_recovery:latest"
+  default     = "ghcr.io/taheerbinhussain/azure-disaster-recovery:latest"
 }
 
 variable "app_version" {
