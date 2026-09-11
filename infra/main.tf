@@ -166,7 +166,6 @@ resource "azurerm_container_app" "main" {
         port             = 8000
         transport        = "HTTP"
         initial_delay    = 10
-        period_seconds   = 30
         failure_count_threshold = 3
       }
 
@@ -175,7 +174,6 @@ resource "azurerm_container_app" "main" {
         path      = "/ready"
         port      = 8000
         transport = "HTTP"
-        period_seconds = 10
         failure_count_threshold = 3
       }
     }
